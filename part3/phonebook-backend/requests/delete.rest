@@ -1,0 +1,5 @@
+### DELETE ONE
+DELETE http://localhost:3001/api/persons/61f2abc7c4d22c8783753564
+
+### DELETE NON EXISTED
+DELETE http://localhost:3001/api/persons/100

@@ -1,0 +1,25 @@
+### POST ONE
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "A new person",
+    "number": "043-123-1453"
+}
+
+### POST INVALID MISSING FILLEDS
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "A new person"
+}
+
+### POST INVALID EXISTED NAME
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": "043-123-1453"
+}

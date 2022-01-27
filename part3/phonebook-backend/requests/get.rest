@@ -1,0 +1,8 @@
+### GET ALL
+GET http://localhost:3001/api/persons
+
+### GET ONE
+GET http://localhost:3001/api/persons/1
+
+### GET NON EXIST
+GET http://localhost:3001/api/persons/100
