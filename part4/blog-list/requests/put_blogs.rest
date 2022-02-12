@@ -1,0 +1,10 @@
+PUT  http://localhost:3003/api/blogs/62080cb16cd673cd21c7a7b1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphbmVEb2UiLCJpZCI6IjYyMDgwODg4ZDUzYzgxNjA1MzdiMzJlYiIsImlhdCI6MTY0NDY5NDkzMSwiZXhwIjoxNjQ0NzgxMzMxfQ.9GGgAOqjLJNS6UuRzrtAolHjh8_2x_8DU8imiQJTNxs
+
+{
+  "title": "Jone Doe Blog Tokened 1 updated",
+  "author": "Jone Doe",
+  "url": "https://www.fakeurl.com",
+  "likes": 0
+}
