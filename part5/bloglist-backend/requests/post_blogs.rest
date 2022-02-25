@@ -1,0 +1,10 @@
+POST  http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphbmVEb2UiLCJpZCI6IjYyMDgwODg4ZDUzYzgxNjA1MzdiMzJlYiIsImlhdCI6MTY0NDY5NDkzMSwiZXhwIjoxNjQ0NzgxMzMxfQ.9GGgAOqjLJNS6UuRzrtAolHjh8_2x_8DU8imiQJTNxs
+
+{
+  "title": "toDelete 2",
+  "author": "Anonimo",
+  "url": "https://www.fakeurl.com",
+  "likes": 3
+}
