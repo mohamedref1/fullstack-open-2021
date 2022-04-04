@@ -1,0 +1,20 @@
+PUT  http://localhost:3003/api/blogs/62080cb16cd673cd21c7a7b1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphbmVEb2UiLCJpZCI6IjYyMDgwODg4ZDUzYzgxNjA1MzdiMzJlYiIsImlhdCI6MTY0OTAwNjkwNSwiZXhwIjoxNjQ5MDkzMzA1fQ.7SwmqlakbN7fRpVwgQ8sC20_3Lfo0VY52Fs8Jb9RHIQ
+
+{
+  "title": "Jone Doe Blog Tokened 1 updated",
+  "author": "Jone Doe",
+  "url": "https://www.fakeurl.com",
+  "likes": 0
+}
+
+###
+
+POST  http://localhost:3003/api/blogs/6249dac09feaa3a87a5e94db/comments
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphbmVEb2UiLCJpZCI6IjYyMDgwODg4ZDUzYzgxNjA1MzdiMzJlYiIsImlhdCI6MTY0OTAwNjkwNSwiZXhwIjoxNjQ5MDkzMzA1fQ.7SwmqlakbN7fRpVwgQ8sC20_3Lfo0VY52Fs8Jb9RHIQ
+
+{
+  "comment": "This is my comment 3"
+}
