@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -18,8 +18,11 @@ import { deAuthenticate } from '../reducers/loggedUser'
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null)
   const [anchorElUser, setAnchorElUser] = useState(null)
-
-  const loggedUser = useSelector((state) => state.loggedUser)
+  const [loggedUser, users] = useSelector((state) => [
+    state.loggedUser,
+    state.users,
+  ])
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const appName = 'Blog App'
@@ -36,7 +39,12 @@ const ResponsiveAppBar = () => {
         {
           id: 1,
           name: loggedUser.name,
-          action: null,
+          action: () => {
+            const id = users.find(
+              (user) => user.username === loggedUser.username
+            ).id
+            navigate(`/users/${id}`)
+          },
         },
         {
           id: 2,

@@ -38,6 +38,7 @@ const Blog = ({ blog }) => {
   const addComment = (event) => {
     event.preventDefault()
     dispatch(addOneComment(blog.id, comment.attrs.value))
+    comment.reset()
   }
 
   if (!blog) {

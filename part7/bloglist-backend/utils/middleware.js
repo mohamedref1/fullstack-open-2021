@@ -1,3 +1,4 @@
+const path = require('path')
 const logger = require('./logger')
 const config = require('../utils/config')
 const jwt = require('jsonwebtoken')
@@ -22,29 +23,40 @@ const userExtractor = async (request, response, next) => {
       request.user = await User.findById(decodedToken.id)
     }
   }
-  
+
   next()
+}
+
+const routeHandler = (request, response, next) => {
+  response.sendFile(
+    path.join(__dirname, '../build/index.html'),
+    function (err) {
+      if (err) {
+        next(err)
+      }
+    }
+  )
 }
 
 const unknwonEndPoint = (request, response) => {
   response.status(404).json('unknown endpoint')
 }
 
-const errorHandler = (error, request ,response, next) => {
+const errorHandler = (error, request, response, next) => {
   logger.error(error)
-  
+
   if (error.name === 'CastError') {
-    return response.status(400).json({'error': 'malformed id'})
+    return response.status(400).json({ error: 'malformed id' })
   } else if (error.name === 'ValidationError') {
     return response.status(400).json(error.message)
   } else if (error.name === 'InvalidPassword') {
-    return response.status(400).json({error: 'invalid password'})
+    return response.status(400).json({ error: 'invalid password' })
   } else if (error.name === 'JsonWebTokenError') {
-    return response.status(401).json({error: 'invalid or missing token'})
+    return response.status(401).json({ error: 'invalid or missing token' })
   } else if (error.name === 'TokenExpiredError') {
-    return response.status(401).json({error: 'token expired'})
+    return response.status(401).json({ error: 'token expired' })
   } else if (error.name === 'UnauthorizedOperation') {
-    return response.status(401).json({error: 'unauthorized operation'})
+    return response.status(401).json({ error: 'unauthorized operation' })
   }
 
   next()
@@ -53,6 +65,7 @@ const errorHandler = (error, request ,response, next) => {
 module.exports = {
   requestLogger,
   userExtractor,
+  routeHandler,
   unknwonEndPoint,
-  errorHandler
+  errorHandler,
 }

@@ -29,6 +29,9 @@ if (process.env.NODE_ENV === 'test') {
   app.use('/api/testing', testingRouter)
 }
 
+// all unknown routes. Except, /api/*
+app.use(/^\/[^a][^p][^i].*$/, middleware.routeHandler)
+
 app.use(middleware.unknwonEndPoint)
 app.use(middleware.errorHandler)
 
