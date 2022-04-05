@@ -24,7 +24,7 @@ const Togglable = forwardRef((props, ref) => {
           variant="contained"
           color="success"
           onClick={() => setVisible(true)}
-          sx={{ display: 'block', my: 5, mx: 'auto' }}
+          sx={{ display: 'block', my: 5, mx: 'auto', width: '25%' }}
         >
           new blog
         </Button>
@@ -35,7 +35,7 @@ const Togglable = forwardRef((props, ref) => {
           variant="contained"
           color="error"
           onClick={() => setVisible(false)}
-          sx={{ display: 'block', mx: 'auto', my: 2 }}
+          sx={{ display: 'block', mx: 'auto', mb: 5, width: '70%' }}
         >
           cancel
         </Button>

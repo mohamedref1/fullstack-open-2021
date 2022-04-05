@@ -39,13 +39,14 @@ const BlogForm = ({ blogFormRef }) => {
       </Typography>
 
       <Grid container direction="row" alignItems="center" justify="center">
-        <form style={{ margin: '0 auto' }} onSubmit={addBlog}>
+        <form style={{ margin: '0 auto', width: '70%' }} onSubmit={addBlog}>
           <Box>
             <TextField
               {...title.attrs}
               id="filled-basic"
               label="Title"
               variant="filled"
+              sx={{ width: '100%' }}
             />
           </Box>
           <Box>
@@ -54,6 +55,7 @@ const BlogForm = ({ blogFormRef }) => {
               id="filled-basic"
               label="Author"
               variant="filled"
+              sx={{ width: '100%' }}
             />
           </Box>
           <Box>
@@ -62,13 +64,14 @@ const BlogForm = ({ blogFormRef }) => {
               id="filled-basic"
               label="URL"
               variant="filled"
+              sx={{ width: '100%' }}
             />
           </Box>
           <Box>
             <Button
               variant="contained"
               color="success"
-              sx={{ display: 'block', mt: 3, mx: 'auto' }}
+              sx={{ display: 'block', mt: 0, mx: 'auto', width: '100%' }}
               type="submit"
             >
               create

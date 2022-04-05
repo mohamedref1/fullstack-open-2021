@@ -36,18 +36,28 @@ const LoginForm = () => {
       </Typography>
 
       <Grid container direction="row" alignItems="center" justify="center">
-        <form style={{ margin: '0 auto' }} onSubmit={handleLogin}>
+        <form style={{ margin: '0 auto', width: '70%' }} onSubmit={handleLogin}>
           <Box>
-            <TextField {...username.attrs} label="Username" variant="filled" />
+            <TextField
+              {...username.attrs}
+              label="Username"
+              variant="filled"
+              sx={{ width: '100%' }}
+            />
           </Box>
           <Box>
-            <TextField {...password.attrs} label="Password" variant="filled" />
+            <TextField
+              {...password.attrs}
+              label="Password"
+              variant="filled"
+              sx={{ width: '100%' }}
+            />
           </Box>
           <Box>
             <Button
               variant="contained"
               color="success"
-              sx={{ display: 'block', mt: 5, mx: 'auto' }}
+              sx={{ display: 'block', mt: 0, mx: 'auto', width: '100%' }}
               type="submit"
             >
               Login

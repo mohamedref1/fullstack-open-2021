@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
@@ -16,10 +16,13 @@ import MenuItem from '@mui/material/MenuItem'
 import { deAuthenticate } from '../reducers/loggedUser'
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null)
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
+  const [anchorElNav, setAnchorElNav] = useState(null)
+  const [anchorElUser, setAnchorElUser] = useState(null)
+
   const loggedUser = useSelector((state) => state.loggedUser)
   const dispatch = useDispatch()
+
+  const appName = 'Blog App'
 
   const pages = loggedUser
     ? [
@@ -31,17 +34,30 @@ const ResponsiveAppBar = () => {
   const settings = loggedUser
     ? [
         {
+          id: 1,
+          name: loggedUser.name,
+          action: null,
+        },
+        {
+          id: 2,
           name: 'Logout',
           action: () => {
             dispatch(deAuthenticate())
           },
         },
       ]
-    : []
+    : [
+        {
+          id: 1,
+          name: 'Guest',
+          action: null,
+        },
+      ]
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
   }
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget)
   }
@@ -96,7 +112,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Blog App
+            {appName}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -145,7 +161,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            {appName}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -188,7 +204,7 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
                     <Button color="inherit" onClick={setting.action}>
                       {setting.name}
